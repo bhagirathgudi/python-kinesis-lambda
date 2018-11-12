@@ -6,7 +6,7 @@ stream_name = 'sample-example'
 client = boto3.client('kinesis')
 
 def lambda_handler(event, context):
-  partition_key = uuid.uuid4()
+  partition_key = str(uuid.uuid4())
   payload = {
     'name':'BHagirath',
     'timestamp': '2018-10-21',
@@ -17,6 +17,3 @@ def lambda_handler(event, context):
   Data= json.dumps(payload),
   PartitionKey = partition_key)
   print(response)
-  
-  
-
